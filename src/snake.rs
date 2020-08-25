@@ -2,7 +2,7 @@ use std::collections::LinkedList;
 use piston_window::{Context, G2d};
 use piston_window::types::Color;
 
-use draw::draw_block;
+use crate::draw::draw_block;
 
 // Red, Green, Blue, Opacity
 const SNAKE_COLOR: Color = [0.00, 0.80, 0.00, 1.0];
@@ -62,7 +62,7 @@ impl Snake {
         }
     }
 
-    pub fn draw(&self, con: Context, g: &mut G2d) {
+    pub fn draw(&self, con: &Context, g: &mut G2d) {
         for block in &self.body {
             draw_block(SNAKE_COLOR, block.x, block.y, con, g);
         }
